@@ -1,0 +1,20 @@
+We used cutadapt to remove any adapter sequences that may be present in the reads from the library construction. 
+
+Version:    1.5
+Reference:  http://journal.embnet.org/index.php/embnetjournal/article/view/200
+
+External adapter sequences were removed using the -a option for all libraries, with the specific adapter sequence used specifically for each read file. 
+
+Additionally, two of the libraries (3kb and 10kb) were constructed with the Nextera protocol, which uses junction adapters that can end up in various parts of the read orientation. For these adapters, we used the -b option. For all other adapters. The output files were also gzip-ed in order to save storage space. 
+
+General command usage for normal library reads:
+
+cutadapt -a external.adapter.sequence.R1 file.name.R1.fastq 2> report.file.name.R1 | gzip > file.name.R1.adapter.trimmed.fastq.gz
+
+cutadapt -a external.adapter.sequence.R1 file.name.R2.fastq 2> report.file.name.R1 | gzip > file.name.R1.adapter.trimmed.fastq.gz
+
+General command for library reads with junction adapters:
+
+cutadapt -a external.adapter.sequence.R1 -b junction.adapter -b junction.adapter.reverse.complement file.name.R1.fastq 2> report.file.name.R1 | gzip > file.name.R1.fastq.gz
+
+cutadapt -a external.adapter.sequence.R2 -b junction.adapter -b junction.adapter.reverse.complement file.name.R2.fastq 2> report.file.name.R2 | gzip > file.name.R2.fastq.gz
