@@ -5,7 +5,10 @@ Reference:  http://journal.embnet.org/index.php/embnetjournal/article/view/200
 
 External adapter sequences were removed using the -a option for all libraries, with the specific adapter sequence used specifically for each read file. 
 
-Additionally, two of the libraries (3kb and 10kb) were constructed with the Nextera protocol, which uses junction adapters that can end up in various parts of the read orientation. For these adapters, we used the -b option. For all other adapters. The output files were also gzip-ed in order to save storage space. 
+Additionally, two of the libraries (3kb and 10kb) were constructed with the Nextera protocol, which uses junction adapters that can end up in various parts of the read orientation. For these adapters, we used the -b option. For more information on junction adapters, see the following document:
+http://res.illumina.com/documents/products/technotes/technote_nextera_matepair_data_processing.pdf
+
+The output files were also gzip-ed in order to save storage space. 
 
 General command usage for normal library reads:
 
